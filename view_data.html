@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Hệ hỗ trợ dự báo khả năng thành công của chiến dịch tiếp thị bảo hiểm ô tô</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../static/assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="../static/assets/css/owl.css">
+
+  </head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+
+    <div id="wrapper">
+
+         <!-- Main -->
+         <div id="main">
+          <div class="inner">
+            <!-- Header -->
+            <header id="header">
+              <div class="logo">
+                <a href="index.html">Car Price Prediction</a>   
+              </div>
+             <button type="button" class="btn btn-warning  btn-sm"><a class="bottom" href="{{url_for('getLogout')}}"> Log out</a> </button>
+            </header>
+
+
+            <!-- Banner -->
+                   
+
+<form action="/get" name = "comp_selec">
+    <p >Vui lòng chọn dữ liệu bạn cần xem:</p>
+    
+      <label for="data">Choose data: </label>
+      <select id="data" name="comp_select"  action ='/view_data.html' method="get">
+    
+        {% for file in files %}
+           <option value =  "{{file}}">{{file}}</option>
+         {% endfor %}
+      </select>
+        <input type="submit" value="Submit" formaction = "/view_data.html"  formmethod="post" >
+      <br>
+    </form>
+    {% for table in tables %}
+  <p> Kết quả: </p>
+            {{titles[loop.index]}}
+            {{ table|safe }}
+
+    {% endfor %}
+       </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar">
+          <div class="inner">
+            <!-- Search Box -->
+            <section id="search" class="alt">
+              <form method="get" action="#">
+                <input type="text" name="search" id="search" placeholder="Search..." />
+              </form>
+            </section>             
+            <!-- Menu -->
+            <nav id="menu">
+              <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li>
+                  <span class="opener">Data</span>
+                  <ul>
+                    <li><a href="upload_data.html">Upload Data</a></li>
+                    <li><a href="view_data.html">View Data</a></li>
+                    
+                  </ul>
+                </li>
+                <li><a href="detection.html">Detection</a></li>
+                <li><a href="https://www.google.com">External Link</a></li>
+              </ul>
+            </nav>
+            <footer id="footer">
+              <p>  <br>Designed by <a rel="nofollow" href="https://www.facebook.com/doandang27052000/">Bùi Doãn Đang</a></p>
+            </footer>
+          </div>
+        </div>
+    </div>
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../static/assets/js/browser.min.js"></script>
+    <script src="../static/assets/js/breakpoints.min.js"></script>
+    <script src="../static/assets/js/transition.js"></script>
+    <script src="../static/assets/js/owl-carousel.js"></script>
+    <script src="../static/assets/js/custom.js"></script>
+</body>
+  </body>
+</html>
